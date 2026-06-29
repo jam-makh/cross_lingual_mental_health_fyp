@@ -1,0 +1,39 @@
+vectorizer: "tfidf"
+
+cv:
+  n_folds: 5
+
+model:
+  architecture: "LSTM"
+  input_size:   5000
+  hidden_size:  256
+  num_layers:   1
+  dropout:      0.5
+  num_classes:  2
+  num_filters:  128
+  kernel_size:  3
+  num_chunks:   50
+
+paths:
+  data:             "C:/Users/Admin/Documents/FYP/french dataset/Code/EDA/MyResults/french_cleaned.csv"
+  checkpoints:      "checkpoints/"
+  results:          "results/"
+  tfidf_vectorizer: "vectorizers/tfidf_vectorizer.pkl"
+  cam_train_emb:    "vectorizers/X_train_cam.npy"
+  cam_test_emb:     "vectorizers/X_test_cam.npy"
+
+dataset:
+  text_col:     "text_nostop"
+  label_col:    "mental_state"
+  test_size:    0.2
+  random_state: 42
+
+training:
+  epochs:             50
+  batch_size:         32
+  learning_rate:      0.001
+  weight_decay:       1.0e-4
+  clip_grad_norm:     1.0
+  patience:           7
+  scheduler_factor:   0.5
+  scheduler_patience: 3
