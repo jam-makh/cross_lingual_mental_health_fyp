@@ -1,0 +1,46 @@
+﻿# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# Jupyter/cache
+.ipynb_checkpoints/
+.pytest_cache/
+
+# Secrets
+.env
+*.env
+
+# IDE
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Generated outputs
+outputs/
+results/
+runs/
+checkpoints/
+combined_models/
+*_outputs/
+*outputs/
+
+# Heavy model files
+*.pt
+*.pth
+*.pkl
+*.joblib
+*.h5
+*.keras
