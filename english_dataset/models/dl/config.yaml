@@ -1,0 +1,67 @@
+# config.yaml
+# This config is only for training on already-created cached embeddings/features.
+# It does not care about the original dataset CSV.
+
+paths:
+  cache_dir: "cache"
+  results_dir: "results_deep"
+  checkpoints_dir: "models/checkpoints"
+
+vectorizers:
+  - "tfidf"
+  #- "distilbert"
+
+# Number of input dimensions for each vectorizer.
+# Set tfidf to the exact number used when the cache was created.
+# If a value is null, main.py will detect it from the cached file shape.
+vectorizer_dimensions:
+  tfidf: null
+  #distilbert: 768
+
+# Classes.
+# If num_classes is null, main.py detects it automatically from y_train/y_test.
+num_classes: null
+
+model:
+  architectures:
+    - "lstm"
+    - "bilstm"
+    - "cnn_rnn"
+
+  #hidden_size: 128
+  #num_layers: 1
+  #dropout: 0.30
+
+  hidden_size: 64
+  num_layers: 1
+  dropout: 0.65
+
+  # Used only by cnn_rnn.
+  cnn_out_channels: 128
+  cnn_kernel_size: 3
+
+# training:
+#   epochs: 50
+#   batch_size: 32
+#   learning_rate: 0.0001
+#   weight_decay: 0.00001
+#   clip_grad_norm: 1.0
+#   patience: 8
+#   validation_size: 0.15
+#   scheduler_factor: 0.5
+#   scheduler_patience: 3
+#   random_state: 42
+
+training:
+  epochs: 50
+  batch_size: 64
+  learning_rate: 0.0001
+  weight_decay: 0.01
+  clip_grad_norm: 1.0
+  patience: 5
+  validation_size: 0.15
+  scheduler_factor: 0.5
+  scheduler_patience: 4
+  random_state: 42
+runtime:
+  device: "auto"   # auto | cpu | cuda
