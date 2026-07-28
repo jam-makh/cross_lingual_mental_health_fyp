@@ -1,6 +1,6 @@
 # Cross-Lingual Mental Health Detection
 
-This repository contains the code and experiments for a cross-lingual mental health text classification project covering English, Arabic, and French datasets. The work focuses on comparing classical machine learning, deep learning, and large language model-based approaches for detecting mental health related content in multilingual text.
+This repository contains the code and experiments for a cross-lingual mental health text classification project covering English, Arabic, and French datasets. The work focuses on comparing classical Machine Learning, Deep Learning, and Large Language Model-based approaches for detecting mental health related content in multilingual text.
 
 ---
 
@@ -29,6 +29,13 @@ The main objective of this project is to evaluate how well mental health classif
 
 ---
 
+## Models Used
+| Machine Learning | Deep Learning | Large Language Models |
+| Logistic Regression | LSTM | Gemmae4:E4B |
+| Support Vector Machines | Bi-LSTM | Qwen3.5:4b |
+| Naive Bayes (Multinomial and Gaussian) | CNN-RNN | Mistral:7B |
+
+---
 ## Repository Structure
 
 ```text
