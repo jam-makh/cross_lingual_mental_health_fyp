@@ -30,12 +30,15 @@ The main objective of this project is to evaluate how well mental health classif
 ---
 
 ## Models Used
+
 | Machine Learning | Deep Learning | Large Language Models |
-| Logistic Regression | LSTM | Gemmae4:E4B |
-| Support Vector Machines | Bi-LSTM | Qwen3.5:4b |
+| --- | --- | --- |
+| Logistic Regression | LSTM | Gemma4:E4B |
+| Support Vector Machines | Bi-LSTM | Qwen3.5:4B |
 | Naive Bayes (Multinomial and Gaussian) | CNN-RNN | Mistral:7B |
 
 ---
+
 ## Repository Structure
 
 ```text
