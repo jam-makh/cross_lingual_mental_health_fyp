@@ -1,27 +1,31 @@
-# cross_lingual_mental_health_fyp
-# Cross-Lingual Mental Health Detection (FYP)
+# Cross-Lingual Mental Health Detection
 
-A deep learning framework for **Cross-Lingual Mental Health Detection & Text Classification** across multilingual datasets (English, Arabic, French). Developed as a Final Year Project (FYP), this project investigates transfer learning, multilingual representations, and fine-tuning transformer architectures to identify early signs of mental health distress in text across diverse linguistic and cultural contexts.
+This repository contains the code and experiments for a cross-lingual mental health text classification project covering English, Arabic, and French datasets. The work focuses on comparing classical machine learning, deep learning, and large language model-based approaches for detecting mental health related content in multilingual text.
 
 ---
 
-## Supervision & Acknowledgments
+## Project Team and Work Division
 
-This Final Year Project was developed by Joseph Am-Makhlouf, Juliette Elias Daher and Jean Khalil under the **Technical Supervision of Mr. Elie Dina**. Special thanks and recognition are extended to Mr. Elie Dina for technical guidance, methodology reviews, and architectural insights throughout the design and evaluation phases.
+This project was developed by Joseph Am-Makhlouf, Juliette Elias Daher, and Jean Khalil, under the supervision of Mr. Elie Dina.
+
+| Area | Responsible Person |
+| --- | --- |
+| English dataset preprocessing, experimentation, and modeling | Joseph Am-Makhlouf |
+| French dataset preprocessing, experimentation, and modeling | Juliette Elias Daher |
+| Arabic dataset preprocessing, experimentation, and modeling | Jean Khalil |
+| Overall supervision and guidance | Mr. Elie Dina |
 
 ---
 
 ## Project Overview
 
-Mental health text classification models often perform well in resource-rich languages like English but suffer severe performance drops when deployed across low-resource or dialect-heavy languages. This repository addresses the cross-lingual transfer gap by leveraging specialized 4 different text embeddings and nine different models.
+The main objective of this project is to evaluate how well mental health classification models generalize across languages and to compare different representation methods and classifiers. The repository includes experiments based on:
 
-### Key Features
-
-* **Multilingual Dataset Pipeline:** Automated extraction, cleaning, and preprocessing for English, Arabic, and French textual datasets.
-* **Text Embeddings:** As part of this study, TF-IDF was used as an embedding for all languages. A pretained model was used as well for each language: DistilBERT for English, CamemBERT for French and AraBERT for Arabic. 
-* **Transformer Architectures:** Fine-tuning and evaluating ML, DL and LLM models for multi-class and binary mental health classification tasks.
-* **Cross-Lingual Zero-Shot:** Evaluating how models trained on high-resource language data perform when tested on unseen target languages.
-* **Comprehensive Metrics:** Detailed reporting on Macro F1-score as a main metric, in addition to Accuracy, Precision, Recall, and Confusion Matrices across embeddings, models and languages.
+- cross-lingual shared text preprocessing and cleaning pipeline
+- classical machine learning models
+- deep learning models
+- transformer-based and LLM-based approaches
+- evaluation using standard classification metrics
 
 ---
 
@@ -29,21 +33,31 @@ Mental health text classification models often perform well in resource-rich lan
 
 ```text
 cross_lingual_mental_health_fyp/
-├── english
-│   ├── raw/                  # Raw text data across target languages
-│   └── processed/            # Cleaned, tokenized, and aligned datasets
-├── notebooks/                # Exploratory Data Analysis (EDA) & experimentation
-├── src/
-│   ├── preprocessing/        # Language normalization, tokenization, & cleaning
-│   ├── models/               # Model initialization, fine-tuning scripts, & evaluation
-│   ├── utils/                # Helper functions, metrics calculation, and logger
-│   └── pipelines/            # End-to-end training and inference execution
-├── configs/                  # Hyperparameter configurations (YAML/JSON)
-├── requirements.txt          # Python dependencies
-├── setup.py                  # Project package installation
-└── README.md                 # Project documentation
-
+├── README.md
+├── arabic_dataset/
+│   ├── EDA_Arabic.py
+│   ├── Deep learning/
+│   └── Machine learning/
+├── english_dataset/
+│   ├── main_cl.py
+│   ├── cleaning_eda/
+│   ├── models/
+│   └── statistical_significance/
+├── french_dataset/
+│   ├── Deep learning/
+│   ├── EDA/
+│   ├── LLM/
+│   └── ML/
+└── web_interface/
+    └── README_web_interface.md
 ```
+
+### Folder Description
+
+- english_dataset/: English-language pipeline, preprocessing, ML, DL, LLMs, and evaluation scripts.
+- arabic_dataset/: Arabic-language pipeline with EDA, ML, DL amd LLMs.
+- french_dataset/: French-language pipeline with EDA, ML, DL and LLMs.
+- web_interface/: Files related to the web interface for the project.
 
 ---
 
@@ -51,84 +65,55 @@ cross_lingual_mental_health_fyp/
 
 ### Prerequisites
 
-* Python **3.9+**
-* CUDA-compatible GPU (recommended for training transformer models)
+- Python 3.9 or newer
+- A working virtual environment is recommended
+- GPU support is recommended for deep learning experiments
 
-### Installation
+### Setup
 
-1. **Clone the repository:**
+1. Clone the repository:
+
 ```bash
-git clone https://github.com/jam-makh/cross_lingual_mental_health_fyp.git
-cd cross_lingual_mental_health_fyp
-
+git clone <repository-url>
+cd chuf
 ```
 
+2. Create and activate a virtual environment:
 
-2. **Set up a virtual environment:**
 ```bash
 python -m venv venv
-# On Windows:
-venv\Scripts\activate
-# On macOS/Linux:
 source venv/bin/activate
-
 ```
 
-
-3. **Install dependencies for each language:**
-```bash
-pip install --upgrade pip
-pip install -r requirements.txt
-
-```
-
-
+3. Install the required dependencies for the experiment you want to run. Depending on the script, you may need libraries such as Pandas, Numpy, scikit-learn, PyTorch, and Transformers.
 
 ---
 
-## Workflow & Usage
+## Usage Notes
 
-### 1. Data Preprocessing
+This project is organized by language rather than by a single unified pipeline. To work with a specific language, navigate to the corresponding folder and run the relevant script.
 
-Preprocess and normalize text for English, Arabic (including dialectal normalization), and French datasets:
+- English experiments: use files inside english_dataset/
+- Arabic experiments: use files inside arabic_dataset/
+- French experiments: use files inside french_dataset/
 
-```bash
-python -m src.preprocessing.clean_data --input_dir data/raw --output_dir data/processed
-
-```
-
-### 2. Model Fine-Tuning
-
-Train or fine-tune a multilingual transformer (e.g., `xlm-roberta-base`) on your dataset:
-
-```bash
-python -m src.models.train --config configs/xlm_roberta_config.json
-
-```
-
-### 3. Cross-Lingual Evaluation
-
-Evaluate the model's cross-lingual generalization across test sets:
-
-```bash
-python -m src.models.evaluate --model_path outputs/best_model --test_dir data/processed/test
-
-```
+The repository also includes a web interface folder for deployment or demonstration purposes.
 
 ---
 
-## Methodology & Models Evaluated
+## Research Focus
 
-| Model | Language Scope | Primary Use Case |
-| --- | --- | --- |
-| **BERT / RoBERTa** | Monolingual (EN) | Baseline performance comparison |
-| **mBERT** | Multilingual | Multilingual fine-tuning & feature alignment |
-| **XLM-RoBERTa** | Multilingual | Cross-lingual transfer & zero-shot evaluation |
-| **Language-Specific Transformers** | AR / FR | Benchmarking against native language models |
+The project compares several modeling strategies for mental health text classification, including:
+
+- TF-IDF-based approaches
+- Transformer-based models
+- Deep Learning architectures
+- Language-specific and Cross-Lingual evaluation
+
+The overall goal is to understand which methods perform best across different languages and datasets.
 
 ---
-
 
 ## License
 
-This project is licensed under the [MIT License](https://www.google.com/search?q=LICENSE) - see the LICENSE file for details.
+This project is licensed under the MIT License. Please refer to the LICENSE file for more details.
