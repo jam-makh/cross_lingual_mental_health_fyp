@@ -25,7 +25,7 @@ Mental health text classification models often perform well in resource-rich lan
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```text
 cross_lingual_mental_health_fyp/
@@ -47,7 +47,7 @@ cross_lingual_mental_health_fyp/
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -117,7 +117,7 @@ python -m src.models.evaluate --model_path outputs/best_model --test_dir data/pr
 
 ---
 
-## 📊 Methodology & Models Evaluated
+## Methodology & Models Evaluated
 
 | Model | Language Scope | Primary Use Case |
 | --- | --- | --- |
@@ -128,25 +128,7 @@ python -m src.models.evaluate --model_path outputs/best_model --test_dir data/pr
 
 ---
 
-## Citation & Attribution
 
-If you reference or use this repository for research or academic purposes, please attribute the project appropriately:
-
-```bibtex
-@misc{ammakhlouf2026crosslingual,
-  author = {Joseph Am-Makhlouf},
-  title = {Cross-Lingual Mental Health Detection (FYP)},
-  year = {2026},
-  publisher = {GitHub},
-  journal = {GitHub Repository},
-  howpublished = {\url{https://github.com/jam-makh/cross_lingual_mental_health_fyp}},
-  note = {Under the Technical Supervision of Mr. Elie Dina}
-}
-
-```
-
----
-
-## 📄 License
+## License
 
 This project is licensed under the [MIT License](https://www.google.com/search?q=LICENSE) - see the LICENSE file for details.
