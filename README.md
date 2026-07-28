@@ -1,6 +1,6 @@
 # Cross-Lingual Mental Health Detection
 
-This repository contains the code and experiments for a cross-lingual mental health text classification project covering English, Arabic, and French datasets. The work focuses on comparing classical Machine Learning, Deep Learning, and Large Language Model-based approaches for detecting mental health related content in multilingual text.
+This repository contains the code and experiments for a cross-lingual mental health text classification project covering English, Arabic, and French datasets. The work focuses on comparing classical Machine Learning, Deep Learning, and Large Language Model-based approaches for detecting mental health related content in texts related to different languages and sources.
 
 ---
 
@@ -8,11 +8,11 @@ This repository contains the code and experiments for a cross-lingual mental hea
 
 This project was developed by Joseph Am-Makhlouf, Juliette Elias Daher, and Jean Khalil, under the supervision of Mr. Elie Dina.
 
-| Area | Responsible Person |
-| --- | --- |
-| English dataset preprocessing, experimentation, and modeling | Joseph Am-Makhlouf |
-| French dataset preprocessing, experimentation, and modeling | Juliette Elias Daher |
-| Arabic dataset preprocessing, experimentation, and modeling | Jean Khalil |
+| Area | Dataset Source | Responsible Person |
+| --- | --- | --- |
+| English dataset preprocessing, experimentation, and modeling | Reddit | Joseph Am-Makhlouf |
+| French dataset preprocessing, experimentation, and modeling | Claude AI (Synthetic)  | Juliette Elias Daher |
+| Arabic dataset preprocessing, experimentation, and modeling | Islamic Website (Patient-Doctor correspondance) | Jean Khalil |
 | Overall supervision and guidance | Mr. Elie Dina |
 
 ---
